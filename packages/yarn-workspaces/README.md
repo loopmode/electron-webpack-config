@@ -1,10 +1,8 @@
-# @loopmode/ewc-yarn-workspaces
-
-## electron-webpack-config-yarn-workspaces
+# @loopmode/electron-webpack-config-yarn-workspaces
 
 Adjustments for the renderer webpack configuration of an `electron-webpack` application that is part of a yarn workspace.
 
-### Usage
+## Usage
 
 ```js
 // packages/electron-app/webpack.renderer.config.js

@@ -1,0 +1,21 @@
+0 silly input [ 'lint' ]
+1 silly flags { _: [ 'run' ],
+1 silly flags   'reject-cycles': false,
+1 silly flags   rejectCycles: false,
+1 silly flags   script: 'lint',
+1 silly flags   args: [] }
+2 verbose rootPath D:\Projects\@github.com\loopmode@github\electron-webpack-config
+3 info version 2.11.0
+4 silly existsSync D:\Projects\@github.com\loopmode@github\electron-webpack-config\VERSION
+5 info versioning independent
+6 error EPACKAGES Errored while collecting packages and package graph
+7 error TypeError: packageConfigs.some is not a function
+7 error     at Function.getPackages (D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\lerna\lib\PackageUtilities.js:111:43)
+7 error     at RunCommand.runPreparations (D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\lerna\lib\Command.js:319:51)
+7 error     at D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\lerna\lib\Command.js:209:18
+7 error     at new Promise (<anonymous>)
+7 error     at RunCommand.run (D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\lerna\lib\Command.js:193:14)
+7 error     at Object.handler (D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\lerna\lib\commands\RunCommand.js:49:14)
+7 error     at Object.self.runCommand (D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\yargs\lib\command.js:233:22)
+7 error     at Object.Yargs.self._parseArgs (D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\yargs\yargs.js:990:30)
+7 error     at Object.Yargs.self.parse (D:\Projects\@github.com\loopmode@github\electron-webpack-config\node_modules\yargs\yargs.js:532:23)

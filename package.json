@@ -5,10 +5,16 @@
   "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
   "license": "MIT",
   "scripts": {
-    "release": "lerna publish"
+    "release": "lerna publish",
+    "lint": "lerna run lint"
   },
-  "workspaces": "packages/*",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "dependencies": {
+    "eslint": "^6.1.0",
     "lerna": "^2.11.0"
   }
 }

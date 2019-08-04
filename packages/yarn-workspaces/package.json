@@ -1,8 +1,11 @@
 {
-  "name": "electron-webpack-config-yarn-workspaces",
+  "name": "@loopmode/electron-webpack-config-yarn-workspaces",
   "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./*.js"
+  },
   "dependencies": {
     "npm-link-extra": "^4.0.0",
     "webpack-merge": "^4.2.1",
