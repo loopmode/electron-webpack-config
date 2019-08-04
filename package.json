@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "electron-webpack-config",
+  "version": "1.0.0",
+  "author": "Jovica Aleksic <jovica.aleksic@loopmode.de>",
+  "license": "MIT",
+  "scripts": {
+    "release": "lerna publish"
+  },
+  "workspaces": "packages/*",
+  "dependencies": {
+    "lerna": "^2.11.0"
+  }
+}

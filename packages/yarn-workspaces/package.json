@@ -1,0 +1,11 @@
+{
+  "name": "electron-webpack-config-yarn-workspaces",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "npm-link-extra": "^4.0.0",
+    "webpack-merge": "^4.2.1",
+    "workspaces-utils": "^1.1.2"
+  }
+}
