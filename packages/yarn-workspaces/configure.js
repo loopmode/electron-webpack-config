@@ -3,19 +3,22 @@ const merge = require("webpack-merge")
 const utils = require("./utils")
 const plugins = require("./plugins")
 
-module.exports = function configureYarnWorkspaces(
-  webpackConfig,
-  { root, libAlias }
-) {
+/**
+ * Applies modifications to the given config.
+ * @param {object} config - a electron-webpack webpack configuration object
+ * @param {string} root - absolute path to the workspaces root folder
+ * @param {string} [libAlias] - name of a package subfolder that the alias should point to
+ */
+module.exports = function configureYarnWorkspaces(config, root, libAlias) {
   const workspacePackages = utils.getWorkspacePackagePaths(root)
 
-  webpackConfig = merge(webpackConfig, {
+  config = merge(config, {
     resolve: { alias: utils.createAliases(workspacePackages, libAlias) }
   })
 
-  webpackConfig.plugins = webpackConfig.plugins
+  config.plugins = config.plugins
     .map(plugin => utils.overridePlugin(plugin, workspacePackages, plugins))
     .filter(Boolean)
 
-  return webpackConfig
+  return config
 }

@@ -1,45 +1,74 @@
 # @loopmode/electron-webpack-config-yarn-workspaces
 
-Adjustments for the renderer webpack configuration of an `electron-webpack` application that is part of a yarn workspace.
+`electron-webpack` config adjustments for yarn workspaces support.
 
 ## Usage
 
+Pass the current configuration object to the function and use the modified return value.
+Always specify the path of the workspace root folder.
+Optionally specify a `libAlias` (see below).
+
 ```js
 // packages/electron-app/webpack.renderer.config.js
-const enableYarnWorkspaces = require("electron-webpack-config-yarn-workspaces")
-module.exports = function(config) {
-  config = enableYarnWorkspaces(config, {
-    root: path.resolve(__dirname, "../.."),
+const configureYarnWorkspaces = require("electron-webpack-config-yarn-workspaces")
+const workspaceRoot = path.resolve(__dirname, "../..")
 
-    libAlias: "lib"
-  })
+module.exports = function(config) {
+  config = configureYarnWorkspaces(config, workspaceRoot)
   return config
 }
 ```
 
-### Options
+### Arguments
+
+```js
+configureYarnWorkspaces(config:object, root:string, libAlias?:string):object
+```
+
+#### config
+
+`{object} config` - the current webpack configuration object.
+
+You get this when you provide a custom `electron-webpack` config module that exports a function.
 
 #### root
 
-`{string} [options.root]` - absolute path of the workspace root (required)
+`{string} root` - absolute path of the workspace root (required)
+
+This is typically two folder levels up when your file is inside `{workspaceFolder}/{packageFolder}`.
 
 #### libAlias
 
-`{string} [options.libAlias]` - relative path inside packages to include in alias target (optional)
+`{string} [libAlias]` - relative path inside packages to include in alias target (optional)
 
-If your packages transpile to their `lib` folders, you would normally have to type out that path when importing their modules:
+If your packages transpile to their `lib` folders, you would normally have to type out that path when importing their modules.
+When you provide a `libAlias: 'lib'` option, you can omit the aliased part from the import path:
+
+without libAlias
 
 ```js
+// in webpack config:
+module.exports = function(config) {
+  return configureYarnWorkspaces(config, workspaceRoot)
+}
+
+// later in code:
 import Button from "@my/package/lib/components/Button"
 ```
 
-When you provide a `libAlias: 'lib'` option, you can omit the aliased part from the import path:
+with libAlias
 
 ```js
+// in webpack config:
+module.exports = function(config) {
+  return configureYarnWorkspaces(config, workspaceRoot, "lib")
+}
+
+// later in code:
 import Button from "@my/package/components/Button"
 ```
 
-### Background
+## Background
 
 The scenario is a project using yarn workspaces and multiple apps sharing multiple modules.
 One workspace package is an app built with `electron-webpack`.
