@@ -8,6 +8,10 @@
     "release": "lerna publish",
     "lint": "lerna run lint"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:loopmode/electron-webpack-config.git"
+  },
   "workspaces": {
     "packages": [
       "packages/*"

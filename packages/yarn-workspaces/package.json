@@ -6,6 +6,11 @@
   "scripts": {
     "lint": "eslint ./*.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:loopmode/electron-webpack-config.git",
+    "directory": "packages/yarn-workspaces"
+  },
   "dependencies": {
     "npm-link-extra": "^4.0.0",
     "webpack-merge": "^4.2.1",
