@@ -10,7 +10,7 @@ Optionally specify a `libAlias` (see below).
 
 ```js
 // packages/electron-app/webpack.renderer.config.js
-const configureYarnWorkspaces = require("electron-webpack-config-yarn-workspaces")
+const configureYarnWorkspaces = require("@loopmode/electron-webpack-config-yarn-workspaces")
 const workspaceRoot = path.resolve(__dirname, "../..")
 
 module.exports = function(config) {
@@ -73,7 +73,7 @@ import Button from "@my/package/components/Button"
 The scenario is a project using yarn workspaces and multiple apps sharing multiple modules.
 One workspace package is an app built with `electron-webpack`.
 Another package is an app built with `create-react-app`.
-Any number of additional packages (utils, modules, anything) exist in the workspace, and they are watched and transpiled by some tool (e.g. babel or typescript). Each of those packages gets its `src/` folder transpiled to a consumable `dist/`.
+Any number of additional packages (utils, modules, anything) exist in the workspace, and they are watched and transpiled by some tool (e.g. babel or typescript). Each of those packages gets its `src/` folder transpiled to a consumable `lib/` folder.
 
 Due to the nature of yarn workspaces, all workspace packages are symlinked into the project root's `node_modules` folder, and thus available to all other workspace packages.
 
